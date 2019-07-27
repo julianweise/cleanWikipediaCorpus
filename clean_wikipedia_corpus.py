@@ -9,7 +9,7 @@ def main(args):
     dump_path: Path = args.wiki_dump
     output_path: Path = args.output
 
-    wiki = WikiCorpus(str(dump_path.absolute()), lemmatize=True)
+    wiki = WikiCorpus(str(dump_path.absolute()), lemmatize=False)
 
     logging.info("Start processing Wikipedia Dump")
 
