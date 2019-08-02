@@ -23,8 +23,8 @@ def main(args):
 
     cleaned_corpus: WordCorpus = WordCorpus(args.corpus)
     model: Word2Vec = Word2Vec(cleaned_corpus, size=100, window=5, min_count=1, workers=16, sg=1)
-    model.save(Path(args.output, "wiki_word2vec_binary.model"))
-    model.wv.save_word2vec_format(Path(args.output, "wiki_word2vec_c_format.txt"), binary=False)
+    model.save(str(Path(args.output, "wiki_word2vec_binary.model").absolute()))
+    model.wv.save_word2vec_format(str(Path(args.output, "wiki_word2vec_c_format.txt").absolute()), binary=False)
 
 
 if __name__ == "__main__":
