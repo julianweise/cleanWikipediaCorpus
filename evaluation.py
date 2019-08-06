@@ -55,4 +55,10 @@ if __name__ == "__main__":
         help="Path to the analogy test set",
         required=True
     )
+    parser.add_argument(
+        "--similarity-test-set",
+        type=Path,
+        help="Path to the similarity test set",
+        required=True
+    )
     main(parser.parse_args())
