@@ -10,7 +10,7 @@ from gensim.models import KeyedVectors
 def main(args):
     embedding_file: Path = args.embedding
     analogy_test_set_file: Path = args.analogy_test_set
-    similarity_test_set_file: Path = args.simiarltiy_test_set
+    similarity_test_set_file: Path = args.similarity_test_set
 
     logging.info("Start Evaluation Framework")
 
