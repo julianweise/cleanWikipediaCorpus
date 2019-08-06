@@ -16,13 +16,13 @@ def main(args):
 
     model: KeyedVectors = KeyedVectors.load_word2vec_format(str(embedding_file.absolute()))
     run_analogy_test(model, analogy_test_set_file)
-    run_similarity_test(model, similarity_test_set_file)
+    # run_similarity_test(model, similarity_test_set_file)
 
 
 def run_analogy_test(model: KeyedVectors, test_set: Path):
     logging.info(f"Start Analogy Testing")
     start = time.time()
-    accuracy: float = model.evaluate_word_analogies(str(test_set.absolute()))
+    accuracy, sections = model.evaluate_word_analogies(str(test_set.absolute()))
     end = time.time()
     logging.info(f"Analogy Testing finished")
     logging.info(f"Analogy Test Result: {accuracy * 100}%. Test execution took {end-start} sec.")
