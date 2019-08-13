@@ -13,9 +13,11 @@ class WordCorpus:
         self._location: Path = location
 
     def __iter__(self):
-        for line in self._location.open("r"):
-            for word in line.replace("\n", ""):
-                yield word
+        with self._location.open("r") as stream:
+            for line in stream:
+                if not line:
+                    continue
+                yield from line.replace("\n", "").split(" ")
 
 
 def main(args):
