@@ -17,7 +17,7 @@ class WordCorpus:
             for line in stream:
                 if not line:
                     continue
-                yield from line.replace("\n", "").split(" ")
+                yield from [word for word in line.replace("\n", "").split(" ") if word]
 
 
 def main(args):
