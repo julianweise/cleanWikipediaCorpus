@@ -24,7 +24,7 @@ def main(args):
     logging.info("Start Training!")
 
     cleaned_corpus: WordCorpus = WordCorpus(args.corpus)
-    model: Word2Vec = Word2Vec(cleaned_corpus, size=100, window=5, min_count=1, workers=16, sg=1, iter=args.epochs)
+    model: Word2Vec = Word2Vec(cleaned_corpus, size=100, window=5, min_count=5, workers=16, sg=1, iter=args.epochs)
     model.save(str(Path(args.output, "wiki_word2vec_binary.model").absolute()))
     model.wv.save_word2vec_format(str(Path(args.output, "wiki_word2vec_c_format.txt").absolute()), binary=False)
 
