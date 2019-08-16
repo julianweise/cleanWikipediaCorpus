@@ -22,7 +22,7 @@ def main(args):
 def run_analogy_test(model: KeyedVectors, test_set: Path):
     logging.info(f"Start Analogy Testing")
     start = time.time()
-    accuracy, sections = model.evaluate_word_analogies(str(test_set.absolute()), case_insensitive=True, restrict_vocab=None)
+    accuracy, sections = model.evaluate_word_analogies(str(test_set.absolute()), case_insensitive=True, restrict_vocab=2**32)
     end = time.time()
     logging.info(f"Analogy Testing finished")
     logging.info(f"Analogy Test Result: {accuracy * 100}%. Test execution took {end-start} sec.")
