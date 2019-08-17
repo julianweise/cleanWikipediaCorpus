@@ -10,7 +10,8 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 def main(args):
     logging.info("Start Training!")
 
-    model: Word2Vec = Word2Vec(corpus_file=str(args.corpus.absolute()), size=100, window=5, min_count=5, workers=16, sg=1, iter=args.epochs)
+    model: Word2Vec = Word2Vec(corpus_file=str(args.corpus.absolute()), size=100, window=5, min_count=5, workers=16,
+                               sg=1, iter=args.epochs, negative=5)
     model.save(str(Path(args.output, "wiki_word2vec_binary.model").absolute()))
     model.wv.save_word2vec_format(str(Path(args.output, "wiki_word2vec_c_format.txt").absolute()), binary=False)
 
